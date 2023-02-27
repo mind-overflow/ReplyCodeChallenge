@@ -1,3 +1,4 @@
+// import libraries
 const fs = require("fs");
 
 // class used to identify single building objects
@@ -25,7 +26,7 @@ function computeDistance(building, antenna) {
     return (building.x - antenna.x) + (building.y - antenna.y);
 }
 
-// sorted (based on highest score) array of all antennas reachable from a specific building
+// returns a sorted (based on highest score) array of all antennas reachable from a specific building
 function getReachableAntennas(building) {
     let reachableAntennas = [];
 
@@ -287,7 +288,7 @@ fs.readFile("data_scenarios_a_example.in", (err, f) => {
 
     // <debug> save ending time in milliseconds since epoch
     let endTime = Date.now();
-    
+
     // <debug> log total runtime
     console.log("\nRunning took " + (endTime-startTime) + "ms");
 })
