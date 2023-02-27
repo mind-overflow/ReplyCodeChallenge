@@ -205,7 +205,7 @@ fs.readFile("data_scenarios_a_example.in", (err, f) => {
     console.log("| ■ = building                |")
     console.log("| ▲ = antenna                 |")
     console.log("| ▣ = building with antenna   |")
-    console.log("| △ = likely                  |")
+    console.log("| △ = possibly good position  |")
     console.log("-------------------------------\n")
     for(let y = 0; y  < width; y++) {
         for(let x = 0; x < height; x++) {
