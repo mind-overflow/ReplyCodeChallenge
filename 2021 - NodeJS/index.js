@@ -206,8 +206,7 @@ fs.readFile("data_scenarios_a_example.in", (err, f) => {
     console.log("| ▲ = antenna                 |")
     console.log("| ▣ = building with antenna   |")
     console.log("| △ = likely                  |")
-    console.log("-------------------------------")
-    console.log("")
+    console.log("-------------------------------\n")
     for(let y = 0; y  < width; y++) {
         for(let x = 0; x < height; x++) {
             let found = 0;
@@ -258,12 +257,11 @@ fs.readFile("data_scenarios_a_example.in", (err, f) => {
         process.stdout.write("\n");
     }
 
-    console.log("");
-    console.log("Likely antenna points: ");
+    console.log("\nLikely antenna points: ");
     console.log(getLikelyAntennaPoints());
 
     let endTime = Date.now();
 
-    console.log("Running took " + (endTime-startTime) + "ms");
+    console.log("\nRunning took " + (endTime-startTime) + "ms");
 })
 
