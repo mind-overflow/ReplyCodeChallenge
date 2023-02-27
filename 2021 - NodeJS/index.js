@@ -104,8 +104,7 @@ function getLikelyAntennaPoints() {
     for(let i = 0; i < buildings.length; i++) {
         let buildingA = buildings[i];
 
-        for(let j = 0; j < buildings.length; j++) {
-            if(i === j) continue; // skip same building
+        for(let j = i+1; j < buildings.length; j++) {
 
             let buildingB = buildings[j];
 
