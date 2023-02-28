@@ -49,7 +49,7 @@ public class Main {
             for(int y = 0; y < width; y++)
             {
                 char currentCharacter = currentLine.charAt(y);
-                Point position = new Point(y, x);
+                Point position = new Point(y, x); // è giusto scambiare x e y
 
                 if(currentCharacter == '_') {
 
@@ -75,12 +75,7 @@ public class Main {
             int bonus = Integer.parseInt(currentDevLine[1]);
             int skillAmount = Integer.parseInt(currentDevLine[2]);
 
-            List<String> skills = new ArrayList<>();
-
-            for(int currentSkill = 0; currentSkill < skillAmount; currentSkill++)
-            {
-                skills.add(currentDevLine[currentSkill + 3]);
-            }
+            List<String> skills = new ArrayList<>(Arrays.asList(currentDevLine).subList(3, skillAmount + 3));
 
             Person developer = new Person(Job.DEVELOPER, company, bonus, skills);
             developers.add(developer);

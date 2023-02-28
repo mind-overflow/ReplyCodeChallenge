@@ -3,10 +3,11 @@ package org.example;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
-import java.util.ArrayList;
 import java.util.List;
 
+@ToString
 class Person {
     @Getter
     private final Job job;
@@ -18,7 +19,7 @@ class Person {
     @Getter @Setter
     private Point position;
 
-    @Getter @Setter
+    @Getter
     private final List<String> skills;
     public Person(Job job, String company, int bonus, List<String> skills)
     {
