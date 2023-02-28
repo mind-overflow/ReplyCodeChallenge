@@ -1,13 +1,14 @@
 package org.example;
 
+import lombok.Getter;
+import lombok.Setter;
+
 class Point {
-    int x, y;
+    @Getter @Setter
+    private int x, y;
 
     public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
-    public int getX() {return x; }
-    public int getY() {return y; }
 }

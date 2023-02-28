@@ -1,22 +1,40 @@
 package org.example;
 
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 class Person {
-    final Job job;
-    final String company;
-    final int bonus;
+    @Getter
+    private final Job job;
+    @Getter
+    private final String company;
+    @Getter
+    private final int bonus;
 
-    Point position;
+    @Getter @Setter
+    private Point position;
 
-    List<String> skills;
-    public Person(Job job, String company, List<String> skills, int bonus, Point position)
+    @Getter @Setter
+    private final List<String> skills;
+    public Person(Job job, String company, int bonus, List<String> skills)
     {
         this.job = job;
         this.company = company;
         this.skills = skills;
-        this.position = position;
         this.bonus = bonus;
+        this.position = null;
+    }
+
+    public Person(Job job, String company, int bonus)
+    {
+        this.job = job;
+        this.company = company;
+        this.skills = null;
+        this.bonus = bonus;
+        this.position = null;
     }
 }

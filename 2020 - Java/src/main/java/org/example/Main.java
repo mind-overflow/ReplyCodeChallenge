@@ -82,7 +82,7 @@ public class Main {
                 skills.add(currentDevLine[currentSkill + 3]);
             }
 
-            Person developer = new Person(Job.DEVELOPER, company, skills, bonus, null);
+            Person developer = new Person(Job.DEVELOPER, company, bonus, skills);
             developers.add(developer);
         }
 
@@ -101,7 +101,7 @@ public class Main {
 
             int bonus = Integer.parseInt(currentLine[1]);
 
-            Person manager = new Person(Job.MANAGER, company, null, bonus, null);
+            Person manager = new Person(Job.MANAGER, company, bonus);
             projectManagers.add(manager);
         }
 
@@ -115,7 +115,7 @@ public class Main {
         List<Person> sorted = new ArrayList<>();
 
         for(Person p : projectManagers) {
-            if(p.position != null) continue;
+            if(p.getPosition() != null) continue;
 
             sorted.add(p);
         }
@@ -123,7 +123,7 @@ public class Main {
         class PersonScoreComparator implements Comparator<Person> {
              @Override
             public int compare(Person p1, Person p2) {
-                 return Integer.compare(p1.bonus, p2.bonus);
+                 return Integer.compare(p1.getBonus(), p2.getBonus());
              }
         }
 
@@ -141,7 +141,7 @@ public class Main {
         int lowestDelta = 1000;
 
         for(Person currHighestBonusManager : highestBonusManagers) {
-            String company = currHighestBonusManager.company;
+            String company = currHighestBonusManager.getCompany();
 
             HashMap<Job, Integer> employeesAmount = getAvailableEmployees(company);
 
@@ -206,9 +206,9 @@ public class Main {
         if(!companies.contains(company)) return null;
 
         for(Person p : developers) {
-            if(p.position != null) continue;
+            if(p.getPosition() != null) continue;
 
-            if(p.company.equals(company)) {
+            if(p.getCompany().equals(company)) {
                 devs++;
             }
         }
@@ -217,9 +217,9 @@ public class Main {
 
 
         for(Person p : projectManagers) {
-            if(p.position != null) continue;
+            if(p.getPosition() != null) continue;
 
-            if(p.company.equals(company)) {
+            if(p.getCompany().equals(company)) {
                 mans++;
             }
         }
@@ -234,14 +234,14 @@ public class Main {
         int devs = 0, managers = 0;
 
         for(Person p : developers) {
-            if(p.company.equals(company)) devs++;
+            if(p.getCompany().equals(company)) devs++;
         }
 
         total.put(Job.DEVELOPER, devs);
 
 
         for(Person p : projectManagers) {
-            if(p.company.equals(company)) managers++;
+            if(p.getCompany().equals(company)) managers++;
         }
         total.put(Job.MANAGER, managers);
 
