@@ -17,18 +17,25 @@ public class Main {
 
     public static void main(String[] args)
     {
+        if(args.length == 0)
+        {
+            println("Please specify which file to parse!");
+            return;
+        }
 
+        final String fileName = args[0];
         List<String> fileLines = new ArrayList<>();
 
         try {
-            File inputFile = new File("a_solar.txt");
+            File inputFile = new File(fileName);
             Scanner fileScanner = new Scanner(inputFile);
 
             while (fileScanner.hasNext()) {
                 fileLines.add(fileScanner.nextLine());
             }
         } catch (Exception e) {
-            println("File not found");
+            println("File not found!");
+            return;
         }
 
         String firstLine = fileLines.get(0);
