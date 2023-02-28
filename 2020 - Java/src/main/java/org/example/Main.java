@@ -12,10 +12,11 @@ public class Main {
     public static List<Person> developers = new ArrayList<>();
     public static List<Person> projectManagers = new ArrayList<>();
 
+    public static int width, height;
+    public static int totalDevelopers, totalManagers;
+
     public static void main(String[] args)
     {
-        int width, height;
-        int totalDevelopers, totalManagers;
 
         List<String> fileLines = new ArrayList<>();
 
@@ -27,7 +28,7 @@ public class Main {
                 fileLines.add(fileScanner.nextLine());
             }
         } catch (Exception e) {
-            print("File not found");
+            println("File not found");
         }
 
         String firstLine = fileLines.get(0);
@@ -106,10 +107,8 @@ public class Main {
 
     }
 
-    public static void print(Object input)
-    {
-        System.out.println(input);
-    }
+    public static void println(Object input) { System.out.println(input); }
+    public static void print(Object input) { System.out.print(input); }
 
     public static List<Person> getHighestBonusAvailableManagers() {
 
